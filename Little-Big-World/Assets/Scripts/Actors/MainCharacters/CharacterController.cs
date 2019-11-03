@@ -5,9 +5,11 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     // == Character Information Variables ==
+    [Header ("Information")]
     [SerializeField] private Color colour;
 
     // == Movement Variables ==
+    [Header("Movement")]
     private Rigidbody rb;
 
     [SerializeField] private float walkSpeed = 5;
@@ -18,10 +20,12 @@ public class CharacterController : MonoBehaviour
     private Vector3 directionVector = Vector3.zero;
 
     // == Character Management Variables ==
+    [Header("Management")]
     public bool isCurrentCharacter;
     private bool canMove;
 
     // == Camera Variables ==
+    [Header("Camera")]
     [SerializeField] private Camera mainCamera;
     private FollowingCamera cameraController;
 
