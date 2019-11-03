@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class FollowingCamera : MonoBehaviour
 {
     [SerializeField] private List<CharacterController> charactersToFollow;
     [SerializeField] private float transitionSpeed = 2;

@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private List<CharacterController> playableCharacters;
-    [SerializeField] private CameraController mainCamera;
+    [SerializeField] private FollowingCamera mainCamera;
 
     private CharacterController currentCharacter;
     private int currentCharacterIndex;

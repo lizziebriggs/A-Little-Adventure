@@ -23,7 +23,7 @@ public class CharacterController : MonoBehaviour
 
     // == Camera Variables ==
     [SerializeField] private Camera mainCamera;
-    private CameraController cameraController;
+    private FollowingCamera cameraController;
 
 
     void Start()
@@ -33,7 +33,7 @@ public class CharacterController : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
 
-        cameraController = mainCamera.GetComponent<CameraController>();
+        cameraController = mainCamera.GetComponent<FollowingCamera>();
 
         GetComponent<Renderer>().material.color = colour;
 
