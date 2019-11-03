@@ -5,7 +5,7 @@ using UnityEngine;
 public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private List<CharacterController> playableCharacters;
-    [SerializeField] private FollowingCamera mainCamera;
+    [SerializeField] private CameraManager cameraManager;
 
     private CharacterController currentCharacter;
     private int currentCharacterIndex;
@@ -20,6 +20,7 @@ public class CharacterManager : MonoBehaviour
     void Update()
     {
         currentCharacter = playableCharacters[currentCharacterIndex];
+        cameraManager.ChangeCharacterToLookAt(currentCharacter);
         currentCharacter.isCurrentCharacter = true;
 
         if(Input.GetKeyDown(KeyCode.Tab))
@@ -36,7 +37,5 @@ public class CharacterManager : MonoBehaviour
 
         if (currentCharacterIndex > playableCharacters.Count - 1)
             currentCharacterIndex = 0;
-
-        mainCamera.ChangeCharacterToFollow();
     }
 }

@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class LookAtCamera : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public CharacterController characterToLookAt;
 
-    // Update is called once per frame
+
     void Update()
     {
-        
+        transform.LookAt(characterToLookAt.transform, Vector3.up);
+    }
+
+
+    public void ChangePosition(Transform newPosition)
+    {
+        transform.position = newPosition.transform.position;
     }
 }
