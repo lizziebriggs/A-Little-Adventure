@@ -9,31 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
   m_Name: Connie
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  characterName: Connie
-  character: {fileID: 21300000, guid: 3bf55c624206e0b4ba07291dd633d5e9, type: 3}
-  messages:
-  - text: Oh hello! How is your day going?
-    responses:
-    - next: 1
-      reply: Awesome!
-      preReq: 
-      trigger: 
-    - next: 2
-      reply: No too great
-      preReq: 
-      trigger: 
-  - text: That's great to hear!
-    responses:
-    - next: -1
-      reply: Skip away
-      preReq: 
-      trigger: 
-  - text: I hope it gets better!
-    responses:
-    - next: -1
-      reply: Sulk away
-      preReq: 
-      trigger: 
+  characterName: 
+  character: {fileID: 0}
+  messages: []
