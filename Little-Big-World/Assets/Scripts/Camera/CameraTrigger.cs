@@ -4,26 +4,15 @@ using UnityEngine;
 
 public class CameraTrigger : MonoBehaviour
 {
-    [SerializeField] private CameraManager cameraManager;
-    [SerializeField] private int index;
-
-    void Start()
-    {
-        
-    }
-
-
-    void Update()
-    {
-        
-    }
+    [SerializeField] private CameraManager cameraManager = null;
+    [SerializeField] private int index = 0;
 
     private void OnTriggerEnter(Collider collision)
     {
         if(collision.tag == "Player")
         {
             cameraManager.ChangeWorldPosition(index);
-            Debug.Log("Collided with player");
+            //Debug.Log("Collided with player");
         }
     }
 }

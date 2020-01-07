@@ -4,20 +4,29 @@ using UnityEngine;
 
 public class CharacterController : MonoBehaviour
 {
+    public enum State
+    {
+        Idle,
+        Walking,
+        Running,
+        Jumping,
+        Speaking
+    }
+     
     // == Character Information Variables ==
     [Header("Information")]
     public string characterName;
-    [SerializeField] private Color colour;
+    [SerializeField] private Color colour = Color.white;
 
     // == Movement Variables ==
     [Header("Movement")]
-    private Rigidbody rb;
-
     [SerializeField] private float walkSpeed = 5;
     [SerializeField] private float runSpeed = 10;
     [SerializeField] private float acceleration = 2;
     [SerializeField] private float jumpHeight = 1;
-    [SerializeField] private float jumpSpeed;
+    [SerializeField] private float jumpSpeed = 5;
+
+    private Rigidbody rb;
 
     private float currentSpeed = 1;
     private Vector3 directionToMove = Vector3.zero;
@@ -26,15 +35,16 @@ public class CharacterController : MonoBehaviour
 
     // == Character Management Variables ==
     [Header("Management")]
+    [SerializeField] private DialogueManager dialogueManager = null;
+    public State currentState;
     public bool isCurrentCharacter;
-    [SerializeField] private DialogueManager dialogueManager;
     private bool canMove;
 
+    // !! Only needed when using FollowingCamera function !!
     // == Camera Variables ==
-    [Header("Camera")]
-    // Only needed when using FollowingCamera function
-    [SerializeField] private Camera mainCamera;
-    private FollowingCamera cameraController;
+    //[Header("Camera")]
+    //[SerializeField] private Camera mainCamera = null;
+    //private FollowingCamera cameraController;
 
 
     void Start()
@@ -44,24 +54,29 @@ public class CharacterController : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
 
-        cameraController = mainCamera.GetComponent<FollowingCamera>();
+        // Only needed when using FollowingCamera function
+        //cameraController = mainCamera.GetComponent<FollowingCamera>();
 
         GetComponent<Renderer>().material.color = colour;
 
         currentSpeed = walkSpeed;
+        currentState = State.Idle;
     }
 
 
     void Update()
     {
-        if (isCurrentCharacter && !dialogueManager.playingDialogue && !cameraController.moveCamera && !cameraController.rotateCamera) canMove = true;
+        // add < && !cameraController.moveCamera && !cameraController.rotateCameran > when using FollowingCamera
+        if (isCurrentCharacter && !dialogueManager.playingDialogue)
+            canMove = true;
         else canMove = false;
+
     }
 
 
     private void FixedUpdate()
     {
-        if(canMove) MoveCharacter();
+        if (canMove) MoveCharacter();
     }
 
 
@@ -69,6 +84,7 @@ public class CharacterController : MonoBehaviour
     {
         if(collision.gameObject.tag == ("Ground") && isGrounded == false)
         {
+            currentState = State.Idle;
             isGrounded = true;
         }
     }
@@ -77,13 +93,27 @@ public class CharacterController : MonoBehaviour
     private void MoveCharacter()
     {
         // Character running transition
-        if(Input.GetKey(KeyCode.LeftShift))
-            SpeedUp();
-        else
-            SlowDown();
+        if ((Input.GetAxis("Horizontal") != 0 || Input.GetAxis("Vertical") != 0) && isGrounded)
+        {
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                currentState = State.Running;
+                SpeedUp();
+            }
+            else
+            {
+                currentState = State.Walking;
+                SlowDown();
+            }
+        }
+        else if (isGrounded)
+            currentState = State.Idle;
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        {
+            currentState = State.Jumping;
             Jump();
+        }
 
         transform.Rotate(0, Input.GetAxis("Horizontal") * currentSpeed, 0);
         directionToMove.z = Input.GetAxis("Vertical");

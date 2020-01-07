@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    [SerializeField] private List<CharacterController> playableCharacters;
-    [SerializeField] private CameraManager cameraManager;
+    [SerializeField] private List<CharacterController> playableCharacters = new List<CharacterController>();
+    [SerializeField] private CameraManager cameraManager = null;
 
     private CharacterController currentCharacter;
     private int currentCharacterIndex;

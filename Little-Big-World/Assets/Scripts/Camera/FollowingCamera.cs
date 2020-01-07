@@ -5,7 +5,7 @@ using UnityEngine;
 public class FollowingCamera : MonoBehaviour
 {
     [SerializeField]
-    private List<CharacterController> charactersToFollow;
+    private List<CharacterController> charactersToFollow = new List<CharacterController>();
     private float transitionSpeed = 2;
 
     private int currentCharacterIndex;

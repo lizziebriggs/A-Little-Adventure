@@ -5,7 +5,7 @@ using UnityEngine;
 public class CameraManager : MonoBehaviour
 {
     [SerializeField] private LookAtCamera mainCamera = null;
-    [SerializeField] private List<Transform> worldPlaceholders;
+    [SerializeField] private List<Transform> worldPlaceholders = new List<Transform>();
 
     void Start()
     {
