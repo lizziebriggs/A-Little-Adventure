@@ -14,9 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   characterName: Lance
   messages:
-  - characterEmotion: {fileID: 21300000, guid: caa6b0657e626b546a5683497444e33f, type: 3}
+  - characterEmotions:
+    - {fileID: 21300000, guid: af37efd80bd31ce458bb36c01d385de4, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
     lines:
     - Hi Raine
-  - characterEmotion: {fileID: 21300000, guid: df43a3b737250b943a9fe934f6313538, type: 3}
+    - There's a new book on the bookshelf for you too read. I think you'll really
+      like this one!
+  - characterEmotions:
+    - {fileID: 21300000, guid: af37efd80bd31ce458bb36c01d385de4, type: 3}
+    - {fileID: 21300000, guid: 1bfbd018256be3c4e9775452faa3e594, type: 3}
     lines:
     - Hi Connie
+    - I really need to stop eating so much of your cake, but it's just so good

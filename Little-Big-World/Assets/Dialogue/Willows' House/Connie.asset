@@ -20,6 +20,9 @@ MonoBehaviour:
     lines:
     - Hello Raine
     - You've ripped a hole in your new t-shirt alread?! I just made that for you!
-  - characterEmotions: []
+  - characterEmotions:
+    - {fileID: 21300000, guid: d1a97f14923eeb74dbe0518468a31f12, type: 3}
+    - {fileID: 21300000, guid: 7533eeed21aa1144f9b52351c19cc8d0, type: 3}
     lines:
     - Hello Lance
+    - I do love the new table and stool and you've made

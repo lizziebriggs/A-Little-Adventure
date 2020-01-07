@@ -14,9 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
   characterName: Raine
   messages:
-  - characterEmotion: {fileID: 21300000, guid: 93fc1c66936523c4682fc9d56b25441e, type: 3}
+  - characterEmotions:
+    - {fileID: 21300000, guid: 7b5ad307194023748a1feed6c266b47c, type: 3}
+    - {fileID: 21300000, guid: 3f07c76371bb6d7498789e8a92c5635b, type: 3}
     lines:
     - Hiya Dad
-  - characterEmotion: {fileID: 21300000, guid: 77330633b1c3a1543b1d7aa9e5ac0691, type: 3}
+    - I can't wait to go berry collecting with you soon!
+  - characterEmotions:
+    - {fileID: 21300000, guid: 93fc1c66936523c4682fc9d56b25441e, type: 3}
+    - {fileID: 21300000, guid: 957664baa94ac274e8c67a788d9bfb52, type: 3}
     lines:
     - Hiya Mum
+    - Ugh, I really shouldn't have stayed up so late reading last night
