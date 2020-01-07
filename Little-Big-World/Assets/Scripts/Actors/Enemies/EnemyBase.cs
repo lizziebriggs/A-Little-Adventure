@@ -2,26 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class EnemyBase : MonoBehaviour
 {
     // == Character Information Variables ==
-    //[Header("Information")]
+    [Header("Information")]
+    [SerializeField] protected Color colour = Color.white;
 
     // == Movement Variables ==
     [Header("Movement")]
-    [SerializeField] private float speed = 5;
+    [SerializeField] protected float speed = 5;
 
-    private Rigidbody rb;
-
-
-    void Start()
-    {
-
-    }
-
-
-    void Update()
-    {
-        
-    }
+    protected Rigidbody rb;
 }
