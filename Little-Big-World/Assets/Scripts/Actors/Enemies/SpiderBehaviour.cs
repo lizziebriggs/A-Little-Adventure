@@ -38,23 +38,26 @@ public class SpiderBehaviour : EnemyBase
 
     void Update()
     {
-        if (currentState == SpiderState.Waiting)
-            DropTimer();
-
-        else if (transform.position == startPosition)
+        switch (currentState)
         {
-            currentState = SpiderState.Waiting;
-            timeTillDrop = dropTimer;
+            case SpiderState.Waiting:
+                Wait();
+                break;
+
+            case SpiderState.Dropping:
+                Drop();
+                break;
+
+            case SpiderState.Rising:
+                Rise();
+                break;
+
+            default:
+                break;
         }
-
-       if (currentState == SpiderState.Dropping)
-            Drop();
-
-        if (currentState == SpiderState.Rising)
-            Rise();
     }
 
-    private void DropTimer()
+    private void Wait()
     {
         timeTillDrop -= Time.deltaTime;
 
@@ -71,6 +74,12 @@ public class SpiderBehaviour : EnemyBase
     private void Rise()
     {
         transform.position = Vector3.MoveTowards(transform.position, startPosition, speed * Time.deltaTime);
+
+        if(transform.position == startPosition)
+        {
+            currentState = SpiderState.Waiting;
+            timeTillDrop = dropTimer;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
