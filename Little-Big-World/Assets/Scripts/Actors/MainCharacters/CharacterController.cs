@@ -5,7 +5,8 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
     // == Character Information Variables ==
-    [Header ("Information")]
+    [Header("Information")]
+    public string characterName;
     [SerializeField] private Color colour;
 
     // == Movement Variables ==
@@ -26,6 +27,7 @@ public class CharacterController : MonoBehaviour
     // == Character Management Variables ==
     [Header("Management")]
     public bool isCurrentCharacter;
+    [SerializeField] private DialogueManager dialogueManager;
     private bool canMove;
 
     // == Camera Variables ==
@@ -52,7 +54,7 @@ public class CharacterController : MonoBehaviour
 
     void Update()
     {
-        if (isCurrentCharacter && !cameraController.moveCamera && !cameraController.rotateCamera) canMove = true;
+        if (isCurrentCharacter && !dialogueManager.playingDialogue && !cameraController.moveCamera && !cameraController.rotateCamera) canMove = true;
         else canMove = false;
     }
 
