@@ -40,7 +40,10 @@ public class DialogueManager : MonoBehaviour
             lines.Enqueue(line);
         }
 
-        images.Enqueue(dialogue.characterEmotion);
+        foreach (Sprite image in dialogue.characterEmotions)
+        {
+            images.Enqueue(image);
+        }
 
         DisplayNextLine();
     }

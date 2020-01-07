@@ -20,7 +20,7 @@ public class Dialogue : ScriptableObject
 [System.Serializable]
 public class Message
 {
-    public Sprite characterEmotion;
+    public Sprite[] characterEmotions;
     [TextArea(3, 5)]
     public string[] lines;
 }
