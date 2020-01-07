@@ -22,5 +22,5 @@ public class Message
 {
     public Sprite characterEmotion;
     [TextArea(3, 5)]
-    public string[] lines;
+    public string text;
 }

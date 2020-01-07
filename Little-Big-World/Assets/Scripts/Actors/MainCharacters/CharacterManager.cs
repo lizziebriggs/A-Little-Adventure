@@ -23,7 +23,7 @@ public class CharacterManager : MonoBehaviour
         cameraManager.ChangeCharacterToLookAt(currentCharacter);
         currentCharacter.isCurrentCharacter = true;
 
-        if(Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab))
         {
             ChangeCurrentCharacter();
         }

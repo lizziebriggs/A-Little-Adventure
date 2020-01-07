@@ -12,6 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
   m_Name: Connie
   m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  characterName: 
-  character: {fileID: 0}
-  messages: []
+  characterName: Connie
+  messages:
+  - characterEmotion: {fileID: 21300000, guid: ac2975a20f2c7ab418bdb8e2c28b787e, type: 3}
+    lines:
+    - Hello Raine
+  - characterEmotion: {fileID: 21300000, guid: 3bf55c624206e0b4ba07291dd633d5e9, type: 3}
+    lines:
+    - Hello Lance

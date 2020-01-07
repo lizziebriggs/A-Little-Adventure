@@ -1,0 +1,27 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DialogueDisplay : MonoBehaviour
+{
+    public Dialogue dialogue;
+    public DialogueUI dialogueUI;
+
+    private int currentLine = 0;
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+            ContinueDialogue();
+    }
+
+    public void PlayDialogue()
+    {
+
+    }
+
+    private void ContinueDialogue()
+    {
+
+    }
+}
