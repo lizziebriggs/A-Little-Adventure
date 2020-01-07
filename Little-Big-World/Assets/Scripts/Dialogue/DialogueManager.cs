@@ -32,7 +32,7 @@ public class DialogueManager : MonoBehaviour
     {
         //Debug.Log("Start conversation");
         speaker = _speaker;
-        speaker.currentState = CharacterController.State.Speaking;
+        speaker.currentState = CharacterController.CharacterState.Speaking;
 
         animator.SetBool("IsOpen", true);
         playingDialogue = true;
@@ -82,7 +82,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        speaker.currentState = CharacterController.State.Idle;
+        speaker.currentState = CharacterController.CharacterState.Idle;
 
         animator.SetBool("IsOpen", false);
         playingDialogue = false;

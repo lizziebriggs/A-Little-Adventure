@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody))]
 public class CharacterController : MonoBehaviour
 {
-    public enum State
+    public enum CharacterState
     {
         Idle,
         Walking,
@@ -36,7 +37,7 @@ public class CharacterController : MonoBehaviour
     // == Character Management Variables ==
     [Header("Management")]
     [SerializeField] private DialogueManager dialogueManager = null;
-    public State currentState;
+    public CharacterState currentState;
     public bool isCurrentCharacter;
     private bool canMove;
 
@@ -49,10 +50,7 @@ public class CharacterController : MonoBehaviour
 
     void Start()
     {
-        if(GetComponent<Rigidbody>() != null)
-        {
-            rb = GetComponent<Rigidbody>();
-        }
+        rb = GetComponent<Rigidbody>();
 
         // Only needed when using FollowingCamera function
         //cameraController = mainCamera.GetComponent<FollowingCamera>();
@@ -60,7 +58,7 @@ public class CharacterController : MonoBehaviour
         GetComponent<Renderer>().material.color = colour;
 
         currentSpeed = walkSpeed;
-        currentState = State.Idle;
+        currentState = CharacterState.Idle;
     }
 
 
@@ -84,7 +82,7 @@ public class CharacterController : MonoBehaviour
     {
         if(collision.gameObject.tag == ("Ground") && isGrounded == false)
         {
-            currentState = State.Idle;
+            currentState = CharacterState.Idle;
             isGrounded = true;
         }
     }
@@ -97,24 +95,26 @@ public class CharacterController : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.LeftShift))
             {
-                currentState = State.Running;
+                currentState = CharacterState.Running;
                 SpeedUp();
             }
             else
             {
-                currentState = State.Walking;
+                currentState = CharacterState.Walking;
                 SlowDown();
             }
         }
         else if (isGrounded)
-            currentState = State.Idle;
+            currentState = CharacterState.Idle;
 
+        // Character jumping
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            currentState = State.Jumping;
+            currentState = CharacterState.Jumping;
             Jump();
         }
 
+        // Get character moving input
         transform.Rotate(0, Input.GetAxis("Horizontal") * currentSpeed, 0);
         directionToMove.z = Input.GetAxis("Vertical");
         directionVector = (rb.transform.right * directionToMove.x) + (rb.transform.forward * directionToMove.z);
