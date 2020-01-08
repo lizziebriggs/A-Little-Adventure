@@ -492,7 +492,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100469021}
   m_LocalRotation: {x: -0, y: -0.971154, z: -0, w: 0.23845345}
-  m_LocalPosition: {x: -63.7, y: 1.74, z: -113.5}
+  m_LocalPosition: {x: -39.3, y: 1.74, z: -102.7}
   m_LocalScale: {x: 1, y: 2.6, z: 1}
   m_Children:
   - {fileID: 682514264}
@@ -3481,7 +3481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &518526739
 Transform:
   m_ObjectHideFlags: 0
@@ -7174,7 +7174,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1002289548
 Transform:
   m_ObjectHideFlags: 0
@@ -12653,6 +12653,7 @@ GameObject:
   - component: {fileID: 1866824068}
   - component: {fileID: 1866824072}
   - component: {fileID: 1866824067}
+  - component: {fileID: 1866824073}
   m_Layer: 0
   m_Name: Mouse
   m_TagString: Untagged
@@ -12776,7 +12777,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.8
-  m_Speed: 3.5
+  m_Speed: 4.5
   m_Acceleration: 8
   avoidancePriority: 50
   m_AngularSpeed: 120
@@ -12788,6 +12789,19 @@ NavMeshAgent:
   m_BaseOffset: 0.5
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!135 &1866824073
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1866824065}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1875990640
 GameObject:
   m_ObjectHideFlags: 0

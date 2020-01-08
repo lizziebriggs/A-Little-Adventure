@@ -12,6 +12,7 @@ public class MouseBehaviour : EnemyBase
         Following
     }
 
+    [SerializeField] Transform spawnPoint = null;
     [SerializeField] Transform target = null;
 
     private NavMeshAgent agent;
@@ -24,7 +25,9 @@ public class MouseBehaviour : EnemyBase
 
         GetComponent<Renderer>().material.color = colour;
 
-        currentState = MouseState.Following;
+        transform.position = spawnPoint.position;
+
+        currentState = MouseState.Waiting;
     }
 
 
@@ -33,6 +36,7 @@ public class MouseBehaviour : EnemyBase
         switch (currentState)
         {
             case MouseState.Waiting:
+                agent.SetDestination(spawnPoint.position);
                 break;
 
             case MouseState.Following:
@@ -56,6 +60,22 @@ public class MouseBehaviour : EnemyBase
         if (collision.gameObject.GetComponent<CharacterController>())
         {
             Debug.Log("You got caught by a mouse!");
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.transform.position == target.position)
+        {
+            currentState = MouseState.Following;
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.transform.position == target.position)
+        {
+            currentState = MouseState.Waiting;
         }
     }
 }
