@@ -6,6 +6,7 @@ public class CharacterManager : MonoBehaviour
 {
     [SerializeField] private List<CharacterController> playableCharacters = new List<CharacterController>();
     [SerializeField] private CameraManager cameraManager = null;
+    [SerializeField] private MouseBehaviour mouse = null;
 
     private CharacterController currentCharacter;
     private int currentCharacterIndex;
@@ -14,18 +15,21 @@ public class CharacterManager : MonoBehaviour
     void Start()
     {
         currentCharacterIndex = 0;
+        currentCharacter = playableCharacters[currentCharacterIndex];
     }
 
 
     void Update()
     {
-        currentCharacter = playableCharacters[currentCharacterIndex];
         cameraManager.ChangeCharacterToLookAt(currentCharacter);
         currentCharacter.isCurrentCharacter = true;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             ChangeCurrentCharacter();
+
+            if (mouse)
+                mouse.SetTarget(currentCharacter.transform);
         }
     }
 
@@ -37,5 +41,7 @@ public class CharacterManager : MonoBehaviour
 
         if (currentCharacterIndex > playableCharacters.Count - 1)
             currentCharacterIndex = 0;
+
+        currentCharacter = playableCharacters[currentCharacterIndex];
     }
 }

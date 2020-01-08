@@ -6,15 +6,16 @@ using UnityEngine.AI;
 [RequireComponent(typeof(NavMeshAgent))]
 public class MouseBehaviour : EnemyBase
 {
-    [SerializeField] Transform target;
-
-    private NavMeshAgent agent;
-
     public enum MouseState
     {
         Waiting,
         Following
     }
+
+    [SerializeField] Transform target = null;
+
+    private NavMeshAgent agent;
+    public MouseState currentState;
 
     void Start()
     {
@@ -22,12 +23,31 @@ public class MouseBehaviour : EnemyBase
         agent = GetComponent<NavMeshAgent>();
 
         GetComponent<Renderer>().material.color = colour;
+
+        currentState = MouseState.Following;
     }
 
 
     void Update()
     {
-        agent.SetDestination(target.position);
+        switch (currentState)
+        {
+            case MouseState.Waiting:
+                break;
+
+            case MouseState.Following:
+                agent.SetDestination(target.position);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+
+    public void SetTarget(Transform newTarget)
+    {
+        target = newTarget;
     }
 
 
