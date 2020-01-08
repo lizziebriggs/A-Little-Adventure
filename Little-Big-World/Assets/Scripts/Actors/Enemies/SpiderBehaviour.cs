@@ -12,9 +12,10 @@ public class SpiderBehaviour : EnemyBase
     }
 
     [Header("Behaviour")]
+    public SpiderState currentState;
+    [SerializeField] private float speed = 5;
     [SerializeField] private float[] dropSpeeds = null;
     [SerializeField] private float dropTimer = 3;
-    public SpiderState currentState;
     private Vector3 startPosition = Vector3.zero;
     private Vector3 dropPosition;
     private int dropSpeedIndex;

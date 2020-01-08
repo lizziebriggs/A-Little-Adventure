@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
+
 
 [RequireComponent(typeof(Rigidbody))]
-public class EnemyBase : MonoBehaviour
+[RequireComponent(typeof(NavMeshAgent))]
+public class AIEnemyBase : MonoBehaviour
 {
     // == Character Information Variables ==
     [Header("Information")]
@@ -12,4 +15,8 @@ public class EnemyBase : MonoBehaviour
     // == Movement Variables ==
     [Header("Movement")]
     protected Rigidbody rb;
+
+    // == AI Variables ==
+    [Header("AI")]
+    protected NavMeshAgent agent;
 }

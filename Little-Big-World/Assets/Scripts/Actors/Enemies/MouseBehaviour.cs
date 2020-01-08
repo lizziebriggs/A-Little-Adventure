@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class MouseBehaviour : EnemyBase
+public class MouseBehaviour : AIEnemyBase
 {
     public enum MouseState
     {
@@ -15,7 +15,7 @@ public class MouseBehaviour : EnemyBase
     [SerializeField] Transform spawnPoint = null;
     [SerializeField] Transform target = null;
 
-    private NavMeshAgent agent;
+    [Header("Behaviour")]
     public MouseState currentState;
 
     void Start()

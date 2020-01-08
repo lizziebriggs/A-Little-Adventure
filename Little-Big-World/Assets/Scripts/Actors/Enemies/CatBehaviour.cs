@@ -1,18 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class CatBehaviour : MonoBehaviour
+[RequireComponent(typeof(NavMeshAgent))]
+public class CatBehaviour : AIEnemyBase
 {
-    // Start is called before the first frame update
-    void Start()
+    public enum CatState
     {
-        
+        Patrolling,
+        Attacking
     }
 
-    // Update is called once per frame
+    [Header("Behaviour")]
+    public CatState currentState;
+
+    [Header("AI")]
+    [SerializeField] Transform[] pathOne;
+
+    void Start()
+    {
+        rb = GetComponent<Rigidbody>();
+        agent = GetComponent<NavMeshAgent>();
+
+        GetComponent<Renderer>().material.color = colour;
+
+        currentState = CatState.Patrolling;
+    }
+
+
     void Update()
     {
-        
+        switch (currentState)
+        {
+            case CatState.Patrolling:
+                break;
+
+            case CatState.Attacking:
+                break;
+
+            default:
+                break;
+        }
     }
 }
