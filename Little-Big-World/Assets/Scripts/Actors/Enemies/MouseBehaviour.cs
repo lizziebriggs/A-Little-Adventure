@@ -13,6 +13,7 @@ public class MouseBehaviour : AIEnemyBase
     }
 
     [SerializeField] Transform spawnPoint = null;
+    public Transform playerToAttack;
 
     [Header("Behaviour")]
     public MouseState currentState;
@@ -24,8 +25,7 @@ public class MouseBehaviour : AIEnemyBase
 
         GetComponent<Renderer>().material.color = colour;
 
-        agent.speed = speed;
-
+        // Set position in world as its spawn
         transform.position = spawnPoint.position;
 
         target = spawnPoint;
@@ -38,11 +38,13 @@ public class MouseBehaviour : AIEnemyBase
         switch (currentState)
         {
             case MouseState.Waiting:
-                agent.SetDestination(spawnPoint.position);
+                //Idle
+                if (transform != spawnPoint)
+                    Move();
                 break;
 
             case MouseState.Following:
-                agent.SetDestination(target.position);
+                Move();
                 break;
 
             default:
@@ -51,23 +53,25 @@ public class MouseBehaviour : AIEnemyBase
     }
 
 
-    public void SetTarget(Transform newTarget)
-    {
-        target = newTarget;
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.transform.position == target.position)
+        // If the player enters the mouse's detection then start following
+        // the player
+        if (other.gameObject.transform.position == playerToAttack.position)
         {
+            target = playerToAttack;
             currentState = MouseState.Following;
         }
     }
 
+
     private void OnTriggerExit(Collider other)
     {
+        // If the player leaves the the mouse's detection the mouse return
+        // to spawn and wait
         if (other.gameObject.transform.position == target.position)
         {
+            target = spawnPoint;
             currentState = MouseState.Waiting;
         }
     }

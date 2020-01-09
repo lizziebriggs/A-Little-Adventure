@@ -14,7 +14,7 @@ public class CatBehaviour : AIEnemyBase
 
     [Header("Behaviour")]
     public CatState currentState;
-    [SerializeField] private float attackSpeed;
+    [SerializeField] private float attackSpeed = 15;
     [SerializeField] private float swapDistance = 3;
     [SerializeField] private List<Path> paths = new List<Path>();
     public int pathIndex, waypointIndex;
@@ -26,8 +26,6 @@ public class CatBehaviour : AIEnemyBase
         agent = GetComponent<NavMeshAgent>();
 
         GetComponent<Renderer>().material.color = colour;
-
-        agent.speed = speed;
 
         pathIndex = 0;
         waypointIndex = 0;
@@ -72,14 +70,14 @@ public class CatBehaviour : AIEnemyBase
             }
 
             target = path.waypoints[waypointIndex];
-            agent.SetDestination(target.position);
+            Move();
         }
     }
 
 
     private void AttackPlayer()
     {
-        agent.SetDestination(target.position);
+        Move();
     }
 
 
@@ -88,6 +86,7 @@ public class CatBehaviour : AIEnemyBase
         if (other.gameObject.tag == "Player")
         {
             target = other.gameObject.transform;
+            agent.speed = attackSpeed;
             currentState = CatState.Attacking;
         }
     }

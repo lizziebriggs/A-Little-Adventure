@@ -14,13 +14,18 @@ public class AIEnemyBase : MonoBehaviour
 
     // == Movement Variables ==
     [Header("Movement")]
-    [SerializeField] protected float speed = 5;
     protected Rigidbody rb;
 
     // == AI Variables ==
     [Header("AI")]
     protected NavMeshAgent agent;
     protected Transform target;
+
+
+    protected void Move()
+    {
+        agent.SetDestination(target.position);
+    }
 
 
     private void OnCollisionEnter(Collision collision)
