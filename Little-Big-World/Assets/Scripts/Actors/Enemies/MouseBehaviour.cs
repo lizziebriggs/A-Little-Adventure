@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class MouseBehaviour : EnemyBase
+public class MouseBehaviour : AIEnemyBase
 {
     public enum MouseState
     {
@@ -13,9 +13,8 @@ public class MouseBehaviour : EnemyBase
     }
 
     [SerializeField] Transform spawnPoint = null;
-    [SerializeField] Transform target = null;
 
-    private NavMeshAgent agent;
+    [Header("Behaviour")]
     public MouseState currentState;
 
     void Start()
@@ -25,8 +24,11 @@ public class MouseBehaviour : EnemyBase
 
         GetComponent<Renderer>().material.color = colour;
 
+        agent.speed = speed;
+
         transform.position = spawnPoint.position;
 
+        target = spawnPoint;
         currentState = MouseState.Waiting;
     }
 
@@ -52,15 +54,6 @@ public class MouseBehaviour : EnemyBase
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.GetComponent<CharacterController>())
-        {
-            Debug.Log("You got caught by a mouse!");
-        }
     }
 
     private void OnTriggerEnter(Collider other)

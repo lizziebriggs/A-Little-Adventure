@@ -11,7 +11,5 @@ public class EnemyBase : MonoBehaviour
 
     // == Movement Variables ==
     [Header("Movement")]
-    [SerializeField] protected float speed = 5;
-
     protected Rigidbody rb;
 }
