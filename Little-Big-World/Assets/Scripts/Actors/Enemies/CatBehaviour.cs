@@ -14,9 +14,11 @@ public class CatBehaviour : AIEnemyBase
 
     [Header("Behaviour")]
     public CatState currentState;
+    [SerializeField] private float attackSpeed;
+    [SerializeField] private float swapDistance = 3;
+    [SerializeField] private List<Path> paths = new List<Path>();
+    public int pathIndex, waypointIndex;
 
-    [Header("AI")]
-    [SerializeField] Transform[] pathOne;
 
     void Start()
     {
@@ -24,6 +26,13 @@ public class CatBehaviour : AIEnemyBase
         agent = GetComponent<NavMeshAgent>();
 
         GetComponent<Renderer>().material.color = colour;
+
+        agent.speed = speed;
+
+        pathIndex = 0;
+        waypointIndex = 0;
+
+        target = paths[pathIndex].waypoints[waypointIndex];
 
         currentState = CatState.Patrolling;
     }
@@ -34,13 +43,52 @@ public class CatBehaviour : AIEnemyBase
         switch (currentState)
         {
             case CatState.Patrolling:
+                Patrol(paths[pathIndex]);
                 break;
 
             case CatState.Attacking:
+                AttackPlayer();
                 break;
 
             default:
                 break;
+        }
+    }
+
+
+    private void Patrol(Path path)
+    {
+        if(agent.remainingDistance <= swapDistance + agent.stoppingDistance)
+        {
+            waypointIndex++;
+
+            if (waypointIndex > path.waypoints.Count - 1)
+            {
+                waypointIndex = 0;
+                pathIndex++;
+
+                if (pathIndex > paths.Count - 1)
+                    pathIndex = 0;
+            }
+
+            target = path.waypoints[waypointIndex];
+            agent.SetDestination(target.position);
+        }
+    }
+
+
+    private void AttackPlayer()
+    {
+        agent.SetDestination(target.position);
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            target = other.gameObject.transform;
+            currentState = CatState.Attacking;
         }
     }
 }

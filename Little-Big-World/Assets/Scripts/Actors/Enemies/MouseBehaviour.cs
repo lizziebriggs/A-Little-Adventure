@@ -13,7 +13,6 @@ public class MouseBehaviour : AIEnemyBase
     }
 
     [SerializeField] Transform spawnPoint = null;
-    [SerializeField] Transform target = null;
 
     [Header("Behaviour")]
     public MouseState currentState;
@@ -25,8 +24,11 @@ public class MouseBehaviour : AIEnemyBase
 
         GetComponent<Renderer>().material.color = colour;
 
+        agent.speed = speed;
+
         transform.position = spawnPoint.position;
 
+        target = spawnPoint;
         currentState = MouseState.Waiting;
     }
 
@@ -52,15 +54,6 @@ public class MouseBehaviour : AIEnemyBase
     public void SetTarget(Transform newTarget)
     {
         target = newTarget;
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.GetComponent<CharacterController>())
-        {
-            Debug.Log("You got caught by a mouse!");
-        }
     }
 
     private void OnTriggerEnter(Collider other)
