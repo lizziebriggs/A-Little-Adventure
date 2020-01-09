@@ -7,6 +7,7 @@ public class PauseMenuUI : UIBase
     void Start()
     {
         UI.SetActive(false);
+        animator.SetBool("IsOpen", false);
     }
 
 

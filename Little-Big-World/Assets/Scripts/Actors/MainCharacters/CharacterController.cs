@@ -13,7 +13,7 @@ public class CharacterController : MonoBehaviour
         Jumping,
         Speaking
     }
-     
+
     // == Character Information Variables ==
     [Header("Information")]
     public string characterName;
@@ -33,6 +33,10 @@ public class CharacterController : MonoBehaviour
     private Vector3 directionToMove = Vector3.zero;
     private Vector3 directionVector = Vector3.zero;
     private bool isGrounded = true;
+
+    // == Interaction Variables ==
+    [Header("Interaction")]
+    public GameObject interactText = null;
 
     // == Character Management Variables ==
     [Header("Management")]
@@ -59,6 +63,8 @@ public class CharacterController : MonoBehaviour
 
         currentSpeed = walkSpeed;
         currentState = CharacterState.Idle;
+
+        interactText.gameObject.SetActive(false);
     }
 
 
@@ -69,6 +75,8 @@ public class CharacterController : MonoBehaviour
             canMove = true;
         else canMove = false;
 
+        if (isCurrentCharacter)
+            interactText.SetActive(false);
     }
 
 
@@ -142,5 +150,25 @@ public class CharacterController : MonoBehaviour
     {
         rb.AddForce(new Vector3(0, jumpHeight, 0) * jumpSpeed, ForceMode.Impulse);
         isGrounded = false;
+    }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject.tag == "Player")
+        {
+            // If it's not the current player
+            if (!isCurrentCharacter && other.gameObject.GetComponent<CharacterController>().isCurrentCharacter)
+                interactText.SetActive(true);
+            else
+                interactText.SetActive(false);
+        }
+    }
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.tag == "Player")
+            other.gameObject.GetComponent<CharacterController>().interactText.SetActive(false);
     }
 }
