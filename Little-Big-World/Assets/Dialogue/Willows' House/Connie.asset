@@ -15,8 +15,8 @@ MonoBehaviour:
   characterName: Connie
   messages:
   - characterEmotions:
-    - {fileID: 21300000, guid: 3bf55c624206e0b4ba07291dd633d5e9, type: 3}
-    - {fileID: 21300000, guid: ac2975a20f2c7ab418bdb8e2c28b787e, type: 3}
+    - {fileID: 21300000, guid: 7533eeed21aa1144f9b52351c19cc8d0, type: 3}
+    - {fileID: 21300000, guid: cae199aeadb46be47b4f49cf79111311, type: 3}
     lines:
     - Hello Raine
     - You've ripped a hole in your new t-shirt alread?! I just made that for you!

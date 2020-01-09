@@ -87,7 +87,9 @@ public class SpiderBehaviour : EnemyBase
     {
         if(collision.gameObject.GetComponent<CharacterController>())
         {
-            Debug.Log("You got caught by a spooder!");
+            Debug.Log("You got caught by a " + enemyName + "!");
+            deathScreen.SetMessage(gameObject.name);
+            deathScreen.Show();
         }
 
         if (collision.gameObject.tag == ("Ground"))

@@ -21,7 +21,7 @@ MonoBehaviour:
     - Hiya Dad
     - I can't wait to go berry collecting with you soon!
   - characterEmotions:
-    - {fileID: 21300000, guid: 93fc1c66936523c4682fc9d56b25441e, type: 3}
+    - {fileID: 21300000, guid: 3f07c76371bb6d7498789e8a92c5635b, type: 3}
     - {fileID: 21300000, guid: 957664baa94ac274e8c67a788d9bfb52, type: 3}
     lines:
     - Hiya Mum
