@@ -9,15 +9,15 @@ public class UIBase : MonoBehaviour
 
     public void Show()
     {
-        UI.SetActive(true);
-        //animator.SetBool("IsOpen", true);
+        //UI.SetActive(true);
+        animator.SetBool("IsOpen", true);
         Time.timeScale = 0;
     }
 
     public void Hide()
     {
-        UI.SetActive(false);
-        //animator.SetBool("IsOpen", false);
+        animator.SetBool("IsOpen", false);
         Time.timeScale = 1;
+        //UI.SetActive(false);
     }
 }

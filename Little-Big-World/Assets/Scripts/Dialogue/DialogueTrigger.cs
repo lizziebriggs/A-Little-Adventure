@@ -5,7 +5,7 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueManager dialogueManager = null;
-    [SerializeField] private CharacterController characterController = null;
+    [SerializeField] private PlayerController characterController = null;
 
     //public DialogueObject dialogue;
     public Dialogue dialogue;
@@ -27,28 +27,28 @@ public class DialogueTrigger : MonoBehaviour
             if(dialogue.name == "Raine")
             {
                 if (interactable.name == "Lance")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<CharacterController>());
+                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<PlayerController>());
 
                 else if (interactable.name == "Connie")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<CharacterController>());
+                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<PlayerController>());
             }
 
             else if (dialogue.name == "Lance")
             {
                 if (interactable.name == "Raine")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<CharacterController>());
+                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<PlayerController>());
 
                 else if (interactable.name == "Connie")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<CharacterController>());
+                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<PlayerController>());
             }
 
             else if (dialogue.name == "Connie")
             {
                 if (interactable.name == "Raine")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<CharacterController>());
+                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<PlayerController>());
 
                 else if (interactable.name == "Lance")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<CharacterController>());
+                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<PlayerController>());
             }
         }
     }

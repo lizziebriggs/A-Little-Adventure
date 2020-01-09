@@ -10,7 +10,7 @@ public class DialogueManager : MonoBehaviour
 
     private Queue<string> lines;
     private Queue<Sprite> images;
-    public CharacterController speaker;
+    public PlayerController speaker;
     public bool playingDialogue;
 
     void Start()
@@ -28,11 +28,11 @@ public class DialogueManager : MonoBehaviour
         }
     }
 
-    public void StartDialogue(Message dialogue, CharacterController _speaker)
+    public void StartDialogue(Message dialogue, PlayerController _speaker)
     {
         //Debug.Log("Start conversation");
         speaker = _speaker;
-        speaker.currentState = CharacterController.CharacterState.Speaking;
+        speaker.currentState = PlayerController.CharacterState.Speaking;
 
         animator.SetBool("IsOpen", true);
         playingDialogue = true;
@@ -82,7 +82,7 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        speaker.currentState = CharacterController.CharacterState.Idle;
+        speaker.currentState = PlayerController.CharacterState.Idle;
 
         animator.SetBool("IsOpen", false);
         playingDialogue = false;

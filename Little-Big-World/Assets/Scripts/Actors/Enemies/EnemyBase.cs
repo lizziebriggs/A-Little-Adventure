@@ -20,7 +20,7 @@ public class EnemyBase : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<CharacterController>())
+        if (collision.gameObject.GetComponent<PlayerController>())
         {
             Debug.Log("You got caught by a " + enemyName + "!");
             deathScreen.SetMessage(gameObject.name);

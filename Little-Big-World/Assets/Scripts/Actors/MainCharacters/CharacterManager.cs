@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CharacterManager : MonoBehaviour
 {
-    [SerializeField] private List<CharacterController> playableCharacters = new List<CharacterController>();
+    [SerializeField] private List<PlayerController> playableCharacters = new List<PlayerController>();
     [SerializeField] private CameraManager cameraManager = null;
     [SerializeField] private MouseManager mouseManager = null;
 
-    private CharacterController currentCharacter;
+    private PlayerController currentCharacter;
     private int currentCharacterIndex;
 
 

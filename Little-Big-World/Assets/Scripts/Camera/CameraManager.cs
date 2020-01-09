@@ -25,7 +25,7 @@ public class CameraManager : MonoBehaviour
     }
 
 
-    public void ChangeCharacterToLookAt(CharacterController newCharacter)
+    public void ChangeCharacterToLookAt(PlayerController newCharacter)
     {
         mainCamera.characterToLookAt = newCharacter;
     }

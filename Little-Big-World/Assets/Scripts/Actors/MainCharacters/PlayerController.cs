@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class CharacterController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
     public enum CharacterState
     {
@@ -157,9 +157,10 @@ public class CharacterController : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            // If it's not the current player
-            if (!isCurrentCharacter && other.gameObject.GetComponent<CharacterController>().isCurrentCharacter)
+            // If it's not the current player and they're trigger colliding with the player
+            if (!isCurrentCharacter && other.gameObject.GetComponent<PlayerController>().isCurrentCharacter)
                 interactText.SetActive(true);
+
             else
                 interactText.SetActive(false);
         }
@@ -169,6 +170,6 @@ public class CharacterController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            other.gameObject.GetComponent<CharacterController>().interactText.SetActive(false);
+            other.gameObject.GetComponent<PlayerController>().interactText.SetActive(false);
     }
 }
