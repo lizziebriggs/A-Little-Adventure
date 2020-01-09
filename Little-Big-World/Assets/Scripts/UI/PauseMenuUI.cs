@@ -2,15 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PauseMenuUI : MonoBehaviour
+public class PauseMenuUI : UIBase
 {
-    [SerializeField] GameObject pauseMenu = null;
-
-    void Start()
-    {
-        pauseMenu.SetActive(false);
-    }
-
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -19,17 +12,5 @@ public class PauseMenuUI : MonoBehaviour
 
             else if (Time.timeScale == 0) Hide();
         }
-    }
-
-    public void Show()
-    {
-        Time.timeScale = 0;
-        pauseMenu.SetActive(true);
-    }
-
-    public void Hide()
-    {
-        Time.timeScale = 1;
-        pauseMenu.SetActive(false);
     }
 }
