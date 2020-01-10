@@ -4,39 +4,46 @@ using UnityEngine;
 
 public class Interactable : MonoBehaviour
 {
-
     // == Interaction Variables ==
     [Header("Interaction")]
-    public GameObject interactText = null;
-    [SerializeField] private bool pickupable;
+    public GameObject popup = null;
+    public GameObject toBePickedUpBy = null;
+
 
 
     void Start()
     {
-        interactText.SetActive(false);
+        gameObject.tag = "Interactable";
+        popup.SetActive(false);
     }
 
 
     public void PickUpItem()
     {
         if(Input.GetKeyDown(KeyCode.Return))
+        {
+            MarkAsPickedUp();
             Destroy(gameObject);
+        }
     }
+
+
+    public virtual void MarkAsPickedUp() { }
 
 
     private void OnTriggerStay(Collider other)
     {
         if (other.GetComponent<PlayerController>())
         {
-            PlayerController interactor = other.GetComponent<PlayerController>();
-
-            if(interactor.isCurrentCharacter)
+            if(other.GetComponent<PlayerController>().isCurrentCharacter)
             {
-                interactText.SetActive(true);
-                PickUpItem();
+                popup.SetActive(true);
+
+                if(other.gameObject == toBePickedUpBy)
+                    PickUpItem();
             }
             else
-                interactText.SetActive(false);
+                popup.SetActive(false);
         }
     }
 
@@ -44,6 +51,6 @@ public class Interactable : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            interactText.SetActive(false);
+            popup.SetActive(false);
     }
 }

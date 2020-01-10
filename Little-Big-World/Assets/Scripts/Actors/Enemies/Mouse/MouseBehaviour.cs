@@ -23,8 +23,6 @@ public class MouseBehaviour : AIEnemyBase
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
 
-        GetComponent<Renderer>().material.color = colour;
-
         // Set position in world as its spawn
         transform.position = spawnPoint.position;
 

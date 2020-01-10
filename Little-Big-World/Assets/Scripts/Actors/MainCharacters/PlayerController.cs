@@ -17,7 +17,6 @@ public class PlayerController : MonoBehaviour
     // == Character Information Variables ==
     [Header("Information")]
     public string characterName;
-    [SerializeField] private Color colour = Color.white;
 
     // == Movement Variables ==
     [Header("Movement")]
@@ -36,7 +35,7 @@ public class PlayerController : MonoBehaviour
 
     // == Interaction Variables ==
     [Header("Interaction")]
-    public GameObject interactText = null;
+    public GameObject popup = null;
 
     // == Character Management Variables ==
     [Header("Management")]
@@ -59,12 +58,10 @@ public class PlayerController : MonoBehaviour
         // Only needed when using FollowingCamera function
         //cameraController = mainCamera.GetComponent<FollowingCamera>();
 
-        GetComponent<Renderer>().material.color = colour;
-
         currentSpeed = walkSpeed;
         currentState = CharacterState.Idle;
 
-        interactText.gameObject.SetActive(false);
+        popup.gameObject.SetActive(false);
     }
 
 
@@ -76,7 +73,7 @@ public class PlayerController : MonoBehaviour
         else canMove = false;
 
         if (isCurrentCharacter)
-            interactText.SetActive(false);
+            popup.SetActive(false);
     }
 
 
@@ -159,10 +156,10 @@ public class PlayerController : MonoBehaviour
         {
             // If it's not the current player and they're trigger colliding with the player
             if (!isCurrentCharacter && other.gameObject.GetComponent<PlayerController>().isCurrentCharacter)
-                interactText.SetActive(true);
+                popup.SetActive(true);
 
             else
-                interactText.SetActive(false);
+                popup.SetActive(false);
         }
     }
 
@@ -170,6 +167,6 @@ public class PlayerController : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         if (other.gameObject.tag == "Player")
-            other.gameObject.GetComponent<PlayerController>().interactText.SetActive(false);
+            other.gameObject.GetComponent<PlayerController>().popup.SetActive(false);
     }
 }

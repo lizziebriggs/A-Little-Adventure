@@ -25,8 +25,6 @@ public class CatBehaviour : AIEnemyBase
         rb = GetComponent<Rigidbody>();
         agent = GetComponent<NavMeshAgent>();
 
-        GetComponent<Renderer>().material.color = colour;
-
         pathIndex = 0;
         waypointIndex = 0;
 

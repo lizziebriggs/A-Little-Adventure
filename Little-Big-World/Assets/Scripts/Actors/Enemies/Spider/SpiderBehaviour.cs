@@ -26,8 +26,6 @@ public class SpiderBehaviour : EnemyBase
         rb = GetComponent<Rigidbody>();
         rb.useGravity = false;
 
-        GetComponent<Renderer>().material.color = colour;
-
         startPosition = transform.position;
         dropPosition = new Vector3(startPosition.x, 0, startPosition.z);
 

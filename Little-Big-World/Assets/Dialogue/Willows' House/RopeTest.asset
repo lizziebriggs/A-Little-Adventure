@@ -10,11 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
-  m_Name: CubeTest
+  m_Name: RopeTest
   m_EditorClassIdentifier: 
   messages:
   - characterEmotions: []
     lines:
-    - Hmm, a cube. This could be pretty useful.
-    - You could probably do... cubey.. things with this..
-    - '...Yeah there''s no point picking this up'
+    - Oh look, some rope!
+    - This is definitely a rope.
+    - . . .
+    - Promise
+    - Hmm, there probably isn't any use for this yet
+  - characterEmotions: []
+    lines:
+    - Oh look, some rope!
+    - This might come in handy later

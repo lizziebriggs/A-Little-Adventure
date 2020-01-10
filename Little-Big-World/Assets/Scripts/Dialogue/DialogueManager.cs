@@ -17,6 +17,8 @@ public class DialogueManager : MonoBehaviour
     {
         lines = new Queue<string>();
         images = new Queue<Sprite>();
+
+        dialogueUI.endOfLine.gameObject.SetActive(false);
     }
 
     void Update()
@@ -57,28 +59,32 @@ public class DialogueManager : MonoBehaviour
 
     public void DisplayNextLine()
     {
+        dialogueUI.endOfLine.gameObject.SetActive(false);
+
         if(lines.Count == 0)
         {
             EndDialogue();
             return;
         }
 
-        if(images.Count != lines.Count)
+        // If the dialogue doesn't have any images (i.e. interactables/not enough
+        //images per line set the image transparency to 0 so no image is displayed
+        if (images.Count != lines.Count)
         {
             // Set the image to be transparent
-            Color tempColour = dialogueUI.dialogueImage.color;
-            tempColour.a = 0f;
-            dialogueUI.dialogueImage.color = tempColour;
+            SetDialogueImageColour(0f);
         }
         else
         {
             Sprite dialogueImage = images.Dequeue();
+            SetDialogueImageColour(1f);
             dialogueUI.dialogueImage.sprite = dialogueImage;
         }
 
         string line = lines.Dequeue();
         StopAllCoroutines();
         StartCoroutine(TypeLine(line));
+
     }
 
     IEnumerator TypeLine(string line)
@@ -90,6 +96,8 @@ public class DialogueManager : MonoBehaviour
             dialogueUI.dialogueText.text += letter;
             yield return null;
         }
+
+        dialogueUI.endOfLine.gameObject.SetActive(true);
     }
 
     public void EndDialogue()
@@ -99,5 +107,13 @@ public class DialogueManager : MonoBehaviour
 
         animator.SetBool("IsOpen", false);
         playingDialogue = false;
+    }
+
+
+    private void SetDialogueImageColour(float alpha)
+    {
+        Color tempColour = dialogueUI.dialogueImage.color;
+        tempColour.a = alpha;
+        dialogueUI.dialogueImage.color = tempColour;
     }
 }

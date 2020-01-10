@@ -7,8 +7,7 @@ public class EnemyBase : MonoBehaviour
 {
     // == Character Information Variables ==
     [Header("Information")]
-    [SerializeField] protected string enemyName = "";
-    [SerializeField] protected Color colour = Color.white;
+    [SerializeField] protected string enemyName;
 
     // == Movement Variables ==
     [Header("Movement")]

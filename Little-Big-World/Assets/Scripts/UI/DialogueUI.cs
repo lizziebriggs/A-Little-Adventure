@@ -7,4 +7,5 @@ public class DialogueUI : MonoBehaviour
 {
     public Text dialogueText;
     public Image dialogueImage;
+    public Text endOfLine;
 }
