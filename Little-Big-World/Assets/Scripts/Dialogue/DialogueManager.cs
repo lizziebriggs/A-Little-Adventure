@@ -30,9 +30,11 @@ public class DialogueManager : MonoBehaviour
 
     public void StartDialogue(Message dialogue, PlayerController _speaker)
     {
-        //Debug.Log("Start conversation");
-        speaker = _speaker;
-        speaker.currentState = PlayerController.CharacterState.Speaking;
+        if(_speaker)
+        {
+            speaker = _speaker;
+            speaker.currentState = PlayerController.CharacterState.Speaking;
+        }
 
         animator.SetBool("IsOpen", true);
         playingDialogue = true;
@@ -61,8 +63,18 @@ public class DialogueManager : MonoBehaviour
             return;
         }
 
-        Sprite dialogueImage = images.Dequeue();
-        dialogueUI.dialogueImage.sprite = dialogueImage;
+        if(images.Count != lines.Count)
+        {
+            // Set the image to be transparent
+            Color tempColour = dialogueUI.dialogueImage.color;
+            tempColour.a = 0f;
+            dialogueUI.dialogueImage.color = tempColour;
+        }
+        else
+        {
+            Sprite dialogueImage = images.Dequeue();
+            dialogueUI.dialogueImage.sprite = dialogueImage;
+        }
 
         string line = lines.Dequeue();
         StopAllCoroutines();
@@ -82,11 +94,10 @@ public class DialogueManager : MonoBehaviour
 
     public void EndDialogue()
     {
-        speaker.currentState = PlayerController.CharacterState.Idle;
+        if(speaker)
+            speaker.currentState = PlayerController.CharacterState.Idle;
 
         animator.SetBool("IsOpen", false);
         playingDialogue = false;
-
-        //Debug.Log("End conversation");
     }
 }

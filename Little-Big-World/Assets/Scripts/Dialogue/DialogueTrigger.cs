@@ -5,9 +5,8 @@ using UnityEngine;
 public class DialogueTrigger : MonoBehaviour
 {
     [SerializeField] private DialogueManager dialogueManager = null;
-    [SerializeField] private PlayerController characterController = null;
+    [SerializeField] public int dialogueCode = 0;
 
-    //public DialogueObject dialogue;
     public Dialogue dialogue;
 
     public void TriggerDialogue()
@@ -15,40 +14,25 @@ public class DialogueTrigger : MonoBehaviour
         //dialogueManager.StartDialogue(dialogue);
     }
 
+
     private void OnTriggerStay(Collider other)
     {
-        DialogueTrigger interactable = other.GetComponent<DialogueTrigger>();
-
-        if (Input.GetKeyDown(KeyCode.Return) && characterController.isCurrentCharacter &&
-            interactable && !dialogueManager.playingDialogue)
+        if(Input.GetKeyDown(KeyCode.Return))
         {
-            //Debug.Log(dialogue.name + " interacted with " + interactable.name);
-
-            if(dialogue.name == "Raine")
+            if (other.gameObject.tag == "Player")
             {
-                if (interactable.name == "Lance")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<PlayerController>());
+                if (gameObject.tag == "Player")
+                {
+                    PlayerController interactee = other.GetComponent<PlayerController>();
 
-                else if (interactable.name == "Connie")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<PlayerController>());
-            }
+                    if (gameObject.GetComponent<PlayerController>().isCurrentCharacter)
+                    {
+                        dialogueManager.StartDialogue(dialogue.messages[other.GetComponent<DialogueTrigger>().dialogueCode], interactee);
+                    }
+                }
 
-            else if (dialogue.name == "Lance")
-            {
-                if (interactable.name == "Raine")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[0], interactable.GetComponent<PlayerController>());
-
-                else if (interactable.name == "Connie")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<PlayerController>());
-            }
-
-            else if (dialogue.name == "Connie")
-            {
-                if (interactable.name == "Raine")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<PlayerController>());
-
-                else if (interactable.name == "Lance")
-                    dialogueManager.StartDialogue(interactable.dialogue.messages[1], interactable.GetComponent<PlayerController>());
+                else if (gameObject.tag == "Interactable")
+                    dialogueManager.StartDialogue(dialogue.messages[0], null);
             }
         }
     }

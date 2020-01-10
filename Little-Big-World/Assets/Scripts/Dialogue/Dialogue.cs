@@ -3,15 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "New Dialogue", menuName = "Dialogue/New Dialogue")]
-public class DialogueData : Dialogue{};
-
 
 [System.Serializable]
 public class Dialogue : ScriptableObject
 {
-    [Header("Character Info")]
-    public string characterName;
-
     [Header("Conversations")]
     public Message[] messages;
 }

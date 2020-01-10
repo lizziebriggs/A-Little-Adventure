@@ -10,20 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
-  m_Name: Lance
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  characterName: Lance
+  m_Name: ConnieTest
+  m_EditorClassIdentifier: 
   messages:
   - characterEmotions:
-    - {fileID: 21300000, guid: af37efd80bd31ce458bb36c01d385de4, type: 3}
-    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: 3f07c76371bb6d7498789e8a92c5635b, type: 3}
+    - {fileID: 21300000, guid: 957664baa94ac274e8c67a788d9bfb52, type: 3}
     lines:
-    - Hi Raine
-    - There's a new book on the bookshelf for you too read. I think you'll really
-      like this one!
+    - Hiya Mum
+    - Ugh, I really shouldn't have stayed up so late reading last night
   - characterEmotions:
-    - {fileID: 21300000, guid: af37efd80bd31ce458bb36c01d385de4, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
     - {fileID: 21300000, guid: 1bfbd018256be3c4e9775452faa3e594, type: 3}
     lines:
     - Hi Connie
     - I really need to stop eating so much of your cake, but it's just so good
+  - characterEmotions: []
+    lines: []

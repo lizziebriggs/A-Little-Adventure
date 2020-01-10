@@ -10,9 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
-  m_Name: Raine
-  m_EditorClassIdentifier: Assembly-CSharp::DialogueData
-  characterName: Raine
+  m_Name: LanceTest
+  m_EditorClassIdentifier: 
   messages:
   - characterEmotions:
     - {fileID: 21300000, guid: 7b5ad307194023748a1feed6c266b47c, type: 3}
@@ -20,9 +19,11 @@ MonoBehaviour:
     lines:
     - Hiya Dad
     - I can't wait to go berry collecting with you soon!
+  - characterEmotions: []
+    lines: []
   - characterEmotions:
-    - {fileID: 21300000, guid: 3f07c76371bb6d7498789e8a92c5635b, type: 3}
-    - {fileID: 21300000, guid: 957664baa94ac274e8c67a788d9bfb52, type: 3}
+    - {fileID: 21300000, guid: 7533eeed21aa1144f9b52351c19cc8d0, type: 3}
+    - {fileID: 21300000, guid: d1a97f14923eeb74dbe0518468a31f12, type: 3}
     lines:
-    - Hiya Mum
-    - Ugh, I really shouldn't have stayed up so late reading last night
+    - Hello Lance
+    - I do love the new table and stool and you've made
