@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
+  m_Name: BedroomIntro
+  m_EditorClassIdentifier: 
+  messages:
+  - characterEmotions:
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: a3589038ee09cf945995e799fa1c3613, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: cae199aeadb46be47b4f49cf79111311, type: 3}
+    - {fileID: 21300000, guid: dcade9d6af79a14418ba33d4eb4bcaee, type: 3}
+    - {fileID: 21300000, guid: 7533eeed21aa1144f9b52351c19cc8d0, type: 3}
+    - {fileID: 21300000, guid: dcade9d6af79a14418ba33d4eb4bcaee, type: 3}
+    - {fileID: 21300000, guid: a599b5ad959bfca4aa154b9441bb1ea9, type: 3}
+    - {fileID: 21300000, guid: f226d3428fe088a4b953187be76ce34b, type: 3}
+    lines:
+    - See? We made it here all in one piece!
+    - How much farther have we got to go?
+    - Oh, not far, we just have to get to the ground and through the hallway, through
+      the dining room and then into the kitchen and gather the food
+    - Oh. . . great
+    - Um, Mum, Dad, I think we've got a bit of an eight-legged issue
+    - What's the problem?
+    - It looks like we've got a bit of a spider problem
+    - SPIDERS?!
+    - They're not too much trouble, just make sure they don't fall on your head

@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
+  m_Name: BedroomDrawersIntro
+  m_EditorClassIdentifier: 
+  messages:
+  - characterEmotions:
+    - {fileID: 21300000, guid: 957664baa94ac274e8c67a788d9bfb52, type: 3}
+    - {fileID: 21300000, guid: cae199aeadb46be47b4f49cf79111311, type: 3}
+    - {fileID: 21300000, guid: af37efd80bd31ce458bb36c01d385de4, type: 3}
+    - {fileID: 21300000, guid: 9efc73560c8a20f4589510d5ef09d4b9, type: 3}
+    - {fileID: 21300000, guid: 263f776b89e677f4ea80ade69ebb64d8, type: 3}
+    - {fileID: 21300000, guid: 9efc73560c8a20f4589510d5ef09d4b9, type: 3}
+    - {fileID: 21300000, guid: a3589038ee09cf945995e799fa1c3613, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: a599b5ad959bfca4aa154b9441bb1ea9, type: 3}
+    - {fileID: 21300000, guid: 7b5ad307194023748a1feed6c266b47c, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: cae199aeadb46be47b4f49cf79111311, type: 3}
+    lines:
+    - Phew! That was a close one!
+    - Too close!
+    - Well, now we've got past that, we've just got to find a way to the floor
+    - Look, someone's left their drawers open, we could get down that way
+    - Those gaps are way too big, even I couldn't jump those
+    - Connie, did you wear your scarf today?
+    - . . . Yes
+    - You could parachute down to those drawer's!
+    - Parachute?! I couldn't even climb the ivy!
+    - Dad has a point, you're great with tools and you're the lightest out of the
+      three of us, you could easily make it
+    - And then once you get down to the drawer, push something up so we can get down
+      to you
+    - I guess there's no other choise

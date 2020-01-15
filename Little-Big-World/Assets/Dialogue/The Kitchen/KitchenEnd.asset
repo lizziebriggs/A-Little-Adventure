@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
+  m_Name: KitchenEnd
+  m_EditorClassIdentifier: 
+  messages:
+  - characterEmotions:
+    - {fileID: 21300000, guid: af37efd80bd31ce458bb36c01d385de4, type: 3}
+    - {fileID: 21300000, guid: 7533eeed21aa1144f9b52351c19cc8d0, type: 3}
+    - {fileID: 21300000, guid: 3f07c76371bb6d7498789e8a92c5635b, type: 3}
+    - {fileID: 21300000, guid: cae199aeadb46be47b4f49cf79111311, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: a3589038ee09cf945995e799fa1c3613, type: 3}
+    - {fileID: 21300000, guid: 2b0d229d06494b244a445dc25e3c19ad, type: 3}
+    - {fileID: 21300000, guid: a599b5ad959bfca4aa154b9441bb1ea9, type: 3}
+    - {fileID: 21300000, guid: 3f07c76371bb6d7498789e8a92c5635b, type: 3}
+    lines:
+    - Alright everyone, think we've got everything we need?
+    - Sugar, bread, apple slices, onions, raspberries, pepper, salt. . .
+    - That should last us for weeks!
+    - It'd better!
+    - Well, all that's left to do now is get back home
+    - We have to do all that again?
+    - Nope, I know a little shortcut we can take, it'll take us straight back home
+    - There's a shortcut?! Why didn't we come that way in the first place?!
+    - Because then we'd never have had this little adventure!

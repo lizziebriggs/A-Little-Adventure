@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c31bffdd74d02d45aa0acc9165e62a9, type: 3}
+  m_Name: Connie
+  m_EditorClassIdentifier: 
+  messages:
+  - characterEmotions:
+    - {fileID: 21300000, guid: 7b5ad307194023748a1feed6c266b47c, type: 3}
+    lines:
+    - I wish I brought a few spare crumbs for the mice
+  - characterEmotions:
+    - {fileID: 21300000, guid: 9efc73560c8a20f4589510d5ef09d4b9, type: 3}
+    lines:
+    - Could you make some more of that remedy for my leg?
+  - characterEmotions: []
+    lines: []
