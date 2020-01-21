@@ -14,21 +14,6 @@ public class ConnieController : PlayerController
     [SerializeField] private float dragEffector = 5;
 
 
-    //public override void Start()
-    //{
-    //    rb = GetComponent<Rigidbody>();
-
-    //    // Only needed when using FollowingCamera function
-    //    //cameraController = mainCamera.GetComponent<FollowingCamera>();
-
-    //    currentSpeed = walkSpeed;
-    //    currentState = CharacterState.Idle;
-
-    //    scarf.SetActive(false);
-    //    popup.gameObject.SetActive(false);
-    //}
-
-
     public override void Update()
     {
         // add < && !cameraController.moveCamera && !cameraController.rotateCameran > when using FollowingCamera

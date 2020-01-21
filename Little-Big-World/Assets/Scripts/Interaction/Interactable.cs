@@ -7,7 +7,8 @@ public class Interactable : MonoBehaviour
     // == Interaction Variables ==
     [Header("Interaction")]
     public GameObject popup = null;
-    public GameObject toBePickedUpBy = null;
+    [SerializeField] bool pickupable = false;
+    public GameObject toBeInteractedBy = null;
 
 
     void Start()
@@ -38,7 +39,7 @@ public class Interactable : MonoBehaviour
             {
                 popup.SetActive(true);
 
-                if(other.gameObject == toBePickedUpBy)
+                if(pickupable && other.gameObject == toBeInteractedBy)
                     PickUpItem();
             }
             else

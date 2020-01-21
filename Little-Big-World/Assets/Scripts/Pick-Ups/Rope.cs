@@ -14,6 +14,6 @@ public class Rope : Interactable
     {
         base.MarkAsPickedUp();
 
-        toBePickedUpBy.GetComponent<RaineController>().hasRope = true;
+        toBeInteractedBy.GetComponent<RaineController>().hasRope = true;
     }
 }

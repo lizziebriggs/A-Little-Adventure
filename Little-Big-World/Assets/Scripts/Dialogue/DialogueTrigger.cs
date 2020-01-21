@@ -39,7 +39,7 @@ public class DialogueTrigger : MonoBehaviour
 
                     // If it's meant to be picked up by the character interacting with it then
                     // play this dialogue
-                    if(other.gameObject != interactor.toBePickedUpBy)
+                    if(other.gameObject != interactor.toBeInteractedBy)
                         dialogueManager.StartDialogue(dialogue.messages[0], null);
                     else
                         dialogueManager.StartDialogue(dialogue.messages[1], null);
