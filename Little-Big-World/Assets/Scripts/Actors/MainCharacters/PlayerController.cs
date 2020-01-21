@@ -20,18 +20,18 @@ public class PlayerController : MonoBehaviour
 
     // == Movement Variables ==
     [Header("Movement")]
-    [SerializeField] private float walkSpeed = 5;
+    [SerializeField] protected float walkSpeed = 5;
     [SerializeField] private float runSpeed = 10;
     [SerializeField] private float acceleration = 2;
-    [SerializeField] private float jumpHeight = 1;
-    [SerializeField] private float jumpSpeed = 5;
+    [SerializeField] protected float jumpHeight = 1;
+    [SerializeField] protected float jumpSpeed = 5;
 
-    private Rigidbody rb;
+    protected Rigidbody rb;
 
-    private float currentSpeed = 1;
+    protected float currentSpeed = 1;
     private Vector3 directionToMove = Vector3.zero;
     private Vector3 directionVector = Vector3.zero;
-    private bool isGrounded = true;
+    protected bool isGrounded = true;
 
     // == Interaction Variables ==
     [Header("Interaction")]
@@ -39,10 +39,10 @@ public class PlayerController : MonoBehaviour
 
     // == Character Management Variables ==
     [Header("Management")]
-    [SerializeField] private DialogueManager dialogueManager = null;
+    [SerializeField] protected DialogueManager dialogueManager = null;
     public CharacterState currentState;
     public bool isCurrentCharacter;
-    private bool canMove;
+    protected bool canMove;
 
     // !! Only needed when using FollowingCamera function !!
     // == Camera Variables ==
@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
     //private FollowingCamera cameraController;
 
 
-    void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
 
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
     }
 
 
-    void Update()
+    public virtual void Update()
     {
         // add < && !cameraController.moveCamera && !cameraController.rotateCameran > when using FollowingCamera
         if (isCurrentCharacter && !dialogueManager.playingDialogue)
@@ -80,16 +80,6 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (canMove) MoveCharacter();
-    }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == ("Ground") && isGrounded == false)
-        {
-            currentState = CharacterState.Idle;
-            isGrounded = true;
-        }
     }
 
 
@@ -147,6 +137,16 @@ public class PlayerController : MonoBehaviour
     {
         rb.AddForce(new Vector3(0, jumpHeight, 0) * jumpSpeed, ForceMode.Impulse);
         isGrounded = false;
+    }
+
+
+    public virtual void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == ("Ground") && !isGrounded)
+        {
+            currentState = CharacterState.Idle;
+            isGrounded = true;
+        }
     }
 
 

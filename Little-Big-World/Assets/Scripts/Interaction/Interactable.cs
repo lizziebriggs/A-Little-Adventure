@@ -10,7 +10,6 @@ public class Interactable : MonoBehaviour
     public GameObject toBePickedUpBy = null;
 
 
-
     void Start()
     {
         gameObject.tag = "Interactable";
