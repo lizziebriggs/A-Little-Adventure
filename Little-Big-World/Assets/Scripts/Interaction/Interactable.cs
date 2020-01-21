@@ -11,7 +11,7 @@ public class Interactable : MonoBehaviour
     public GameObject toBeInteractedBy = null;
 
 
-    void Start()
+    public virtual void Start()
     {
         gameObject.tag = "Interactable";
         popup.SetActive(false);
